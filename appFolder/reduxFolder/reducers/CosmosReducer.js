@@ -4,7 +4,8 @@ const initialState= {
     //************Line1**********
    bottom2_Select: require('../../sourceData/image/part1/bottomTab2Select/icon.png'),
    bottom2: require('../../sourceData/image/part1/bottomTab2/icon.png'),
-   //************Line1**********
+   //************FlatList**********
+   
 
 }
 

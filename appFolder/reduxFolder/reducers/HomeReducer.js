@@ -10,11 +10,18 @@ const initialState = {
    
     textSelect : 'Select',
     textDiscover : 'Discover',
+    textRanking : 'Ranking',
+    textSur : 'Surrounding',
     placeHolderText1: 'Send the sample',
+
+    takeMeHomeText: 'Take me home',
+    takeMeHomeTextSub: 'Take care of stray dogs, please \ntake them home.',
+    button1Text: 'Let me',
+
     //************Line3**********
     rankingIcon: require('../../sourceData/image/part1/ranking/icon.png'),
     discussIcon: require('../../sourceData/image/part1/discuss/icon.png'),
-    surroundingIcon: require('../../sourceData/image/part1/discuss/icon.png'),
+    surroundingIcon: require('../../sourceData/image/part1/surIcon/icon.png'),
     //************Line4**********
     backGroundImgLine1: require('../../sourceData/image/part1/backGround1/bg1.png'),
     //************FlatListData**********

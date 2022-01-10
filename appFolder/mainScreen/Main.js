@@ -2,10 +2,10 @@ import React from 'react';
 import { AppRegistry, Image, View } from 'react-native';
 import { name as appName } from './app.json';
 import Home from '../componentScreen/Home';
-import Cosmos from '../componentScreen/Cosmos';
+import Cosmos from '../componentScreen/part2/Cosmos';
 import Add from '../componentScreen/Add';
 import User from '../componentScreen/User';
-import Message from '../componentScreen/Message';
+import Message from '../componentScreen/part4/Message';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
@@ -53,7 +53,7 @@ function MyTabs() {
                             <Image source={require('../sourceData/image/part1/homeSelect/icon.png')} />
                         )
                     else return (
-                        <Image source={require('../sourceData/image/part1/homeSelect/icon.png')} />
+                        <Image source={cosmosDataRedux.bottom2} />
                     )
                 },
                 tabBarActiveTintColor: 'tomato',
@@ -67,7 +67,7 @@ function MyTabs() {
                         )
                     } else {
                         return (
-                            <Image source={require('../sourceData/image/part1/homeSelect/icon.png')} />
+                            <Image source={cosmosDataRedux.bottom2} />
                         )
                     }
 
@@ -81,7 +81,7 @@ function MyTabs() {
                         )
                     } else {
                         return (
-                            <Image source={require('../sourceData/image/part1/homeSelect/icon.png')} />
+                            <Image source={cosmosDataRedux.bottom2} />
                         )
                     }
 

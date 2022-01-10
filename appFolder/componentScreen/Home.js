@@ -38,16 +38,51 @@ const Home = () => {
                     </View>
                 </View>
                 <View style={{ flexDirection: 'row', flex: 1, marginTop: 20 }}>
-
-                    <Image style={{ alignSelf: 'center', flex: 1 }} resizeMode="contain" source={reduxData.rankingIcon} />
-                    <Image style={{ alignSelf: 'center', flex: 1 }} resizeMode="contain" source={reduxData.discussIcon} />
-                    <Image style={{ alignSelf: 'center', flex: 1 }} resizeMode="contain" source={reduxData.surroundingIcon} />
-
+                    <View style={{ alignSelf: 'center', flex: 1 }}>
+                        <Image style={{ alignSelf: 'center' }} resizeMode="contain" source={reduxData.rankingIcon} />
+                        <Text style={{ fontSize: 13, color: 'black', fontWeight: '400', alignSelf: 'center' }}>
+                            {reduxData.textDiscover}
+                        </Text>
+                    </View>
+                    <View style={{ alignSelf: 'center', flex: 1 }}>
+                        <Image style={{ alignSelf: 'center' }} resizeMode="contain" source={reduxData.discussIcon} />
+                        <Text style={{ fontSize: 13, color: 'black', fontWeight: '400', alignSelf: 'center' }}>
+                            {reduxData.textRanking}
+                        </Text>
+                    </View>
+                    <View style={{ alignSelf: 'center', flex: 1 }}>
+                        <Image style={{ alignSelf: 'center' }} resizeMode="contain" source={reduxData.surroundingIcon} />
+                        <Text style={{ fontSize: 13, color: 'black', fontWeight: '400', alignSelf: 'center' }}>
+                            {reduxData.textSur}
+                        </Text>
+                    </View>
 
                 </View>
                 <View style={{ flex: 1, marginTop: 10 }}>
                     <ImageBackground resizeMode="cover" source={reduxData.backGroundImgLine1} style={{ width: '100%', height: 190 }}>
+                        <View  style={{ flex: 1 , marginHorizontal : 20}}>
+                            <View style={{ flex: 2 }}></View>
+                            <View style={{ flex: 2 }}>
+                                <Text style={{ fontWeight: '500', color: 'black', fontSize: 24 }}>
+                                    {reduxData.takeMeHomeText}
+                                </Text>
+                            </View>
+                            <View style={{ flex: 2 }}>
+                                <Text numberOfLines={2} style={{ fontWeight: '400', color: 'black', fontSize: 13 }}>
+                                    {reduxData.takeMeHomeTextSub}
+                                </Text>
+                            </View>
+                            <View style={{ flex: 3 }}>
+                                <Text numberOfLines={2} style={{ fontWeight: '400', color: 'white', 
+                                    fontSize: 12, backgroundColor: 'black', borderRadius: 8,
+                                    textAlign: 'center',
+                                    textAlignVertical: 'center',
+                                    height: 28, width: 80}}>
+                                    {reduxData.button1Text}
+                                </Text>
+                            </View>
 
+                        </View>
                     </ImageBackground>
 
 
