@@ -20,10 +20,10 @@ const Header = () => {
                             <View style={{ flex: 2 }}>
                                 <Text style={{ color: 'white', fontSize: 18, fontWeight: '600' }}>{reduxData.text_1_1}</Text>
                             </View>
-                            <View style={{ flex: 3 }}>
+                            <View style={{ flex: 2 }}>
 
                             </View>
-                            <View style={{ justifyContent: 'space-around', flexDirection: 'row', flex: 1 }}>
+                            <View style={{ justifyContent: 'space-between', flexDirection: 'row', flex: 1 }}>
                                 <Image style={{}} resizeMode="contain" source={reduxData.scanIcon} />
                                 <Image style={{}} resizeMode="contain" source={reduxData.searchIcon} />
                             </View>
@@ -32,21 +32,37 @@ const Header = () => {
 
                     </View>
                     <View style={{
-                        flexDirection: 'row',
+                       
                         position: 'absolute',
                         bottom: -50,
-                        left: 20,
+                        left: 30,
                         backgroundColor: 'white',
                         height: 102,
                         width: 339,
-                        borderRadius: 20
+                        borderRadius: 20,
                     }}>
-
-
+                        <View style={{justifyContent: 'space-between',flexDirection: 'row',marginHorizontal: 18 , marginVertical: 20}}>
+                            <View>
+                                <Image style={{alignSelf: 'center'}} resizeMode="contain" source={reduxData.likeBigIcon} />
+                                <Text style={{alignSelf: 'center'}}>{reduxData.textLikeBigIcon}</Text>
+                            </View>
+                            <View>
+                                <Image style={{alignSelf: 'center'}} resizeMode="contain" source={reduxData.messageBigIcon} />
+                                <Text style={{alignSelf: 'center'}}>{reduxData.textMessageBigIcon}</Text>
+                            </View>
+                            <View>
+                                <Image style={{alignSelf: 'center'}} resizeMode="contain" source={reduxData.commentBigIcon} />
+                                <Text style={{alignSelf: 'center'}}>{reduxData.textCommentBigIcon}</Text>
+                            </View>
+                            <View>
+                                <Image style={{alignSelf: 'center'}} resizeMode="contain" source={reduxData.helpBigIcon} />
+                                <Text style={{alignSelf: 'center'}}>{reduxData.textHelpBigIcon}</Text>
+                            </View>
+                        </View>
 
                     </View>
                 </ImageBackground>
-
+                <View style={{height: 60}}></View>
             </View>
 
         </View>
