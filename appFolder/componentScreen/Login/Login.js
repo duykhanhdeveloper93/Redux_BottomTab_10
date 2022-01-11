@@ -31,10 +31,11 @@ const Login = () => {
 
 
                     </View>
-                    <View style={{ marginTop: 22}}>
-                        <TextInput placeholder="Password" style={{ borderWidth: 0.4, paddingHorizontal: 15 }}>
+                    <View style={{ marginTop: 22 , borderWidth: 0.4, flexDirection: 'row', paddingHorizontal: 10}}>
+                        <TextInput placeholder="Password" style={{ flex : 1  }}>
 
                         </TextInput>
+                        <Image resizeMode="contain" source={reduxData.eyeOffImage} style={{ alignSelf: 'center'}} />
                         
                     </View>
                     <View style={{ marginTop: 22 }}>
