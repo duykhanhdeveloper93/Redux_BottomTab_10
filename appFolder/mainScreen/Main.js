@@ -6,13 +6,24 @@ import Cosmos from '../componentScreen/part2/Cosmos';
 import Add from '../componentScreen/Add';
 import User from '../componentScreen/User';
 import Message from '../componentScreen/part4/Message';
+import Login from '../componentScreen/Login/Login'
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 import { useSelector } from 'react-redux'
 
 const Stack = createNativeStackNavigator();
-const Tab = createBottomTabNavigator();
+const Tab   = createBottomTabNavigator();
+
+
+function LoginTab () {
+    return (
+        <Stack.Navigator>
+            <Stack.Screen name='Login' component={Login}  options={{headerShown: false}}/>
+        </Stack.Navigator>
+    )
+
+}
 
 function MyTabs() {
     const homeDataRedux = useSelector(reduxSource => reduxSource).homeReducer;
@@ -94,11 +105,16 @@ function MyTabs() {
 const Main = () => {
     return (
         <NavigationContainer>
-            <Stack.Navigator>
+            <Stack.Navigator initialRouteName='login'>
+                <Stack.Screen name='login'
+                        component={LoginTab}
+                        options={{ headerShown: false }} />
                 <Stack.Screen name='home'
                     component={MyTabs}
                     options={{ headerShown: false }} />
+                    
             </Stack.Navigator>
+            
         </NavigationContainer>
     );
 }
