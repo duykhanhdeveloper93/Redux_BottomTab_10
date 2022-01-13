@@ -11,28 +11,21 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 import { useSelector } from 'react-redux'
+import { useState } from 'react';
 
 const Stack = createNativeStackNavigator();
-const Tab   = createBottomTabNavigator();
+const Tab = createBottomTabNavigator();
 
 
-function LoginTab () {
-    return (
-        <Stack.Navigator>
-            <Stack.Screen name='Login' component={Login}  options={{headerShown: false}}/>
-        </Stack.Navigator>
-    )
 
-}
-
-function MyTabs() {
+function Body() {
     const homeDataRedux = useSelector(reduxSource => reduxSource).homeReducer;
     const cosmosDataRedux = useSelector(reduxSource => reduxSource).cosmosReducer;
 
     return (
         <Tab.Navigator>
             <Tab.Screen name='Home' component={Home} options={{
-                headerShown: false, tabBarIcon: ({ focused, color, size }) => {
+                headerShown: false, tabBarIcon: ({ focused, color, size } ) => {
                     if (focused)
                         return (
                             <Image source={require('../sourceData/image/part1/homeSelect/icon.png')} />
@@ -102,19 +95,40 @@ function MyTabs() {
         </Tab.Navigator>
     );
 }
+
+const LoginNav = () => {
+    return (
+        <Stack.Navigator >
+            <Stack.Screen name='login'
+                component={Login}
+                options={{ headerShown: false }} />
+        </Stack.Navigator>
+    )
+}
+
+const HomeNav = () => {
+    return (
+        <Stack.Navigator >
+            <Stack.Screen name='body'
+                component={Body}
+                options={{ headerShown: false }} />
+        </Stack.Navigator>
+    )
+}
+
 const Main = () => {
+
+    const [isLogin, setIsLogin] = useState(1);
+
     return (
         <NavigationContainer>
-            <Stack.Navigator initialRouteName='login'>
-                <Stack.Screen name='login'
-                        component={LoginTab}
-                        options={{ headerShown: false }} />
-                <Stack.Screen name='home'
-                    component={MyTabs}
-                    options={{ headerShown: false }} />
-                    
-            </Stack.Navigator>
-            
+            {
+                isLogin == 1 ? (
+                    <HomeNav />
+                ) : (
+                    <LoginNav />
+                )
+            }
         </NavigationContainer>
     );
 }

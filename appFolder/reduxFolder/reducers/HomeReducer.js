@@ -1,5 +1,7 @@
 
 const initialState = {
+    // Infomation Login
+    user: null,
     //----------------------------- Header----------------------------
     //************Line1**********
     image: require('../../sourceData/image/part1/homeSelect/icon.png'),

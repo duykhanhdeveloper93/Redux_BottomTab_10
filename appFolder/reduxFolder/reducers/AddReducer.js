@@ -1,7 +1,7 @@
 const initialState = {
 }
 
-function AddReducer (state = initialState, action) {
+function AddReducer(state = initialState, action) {
     return state;
 }
 
