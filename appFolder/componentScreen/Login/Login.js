@@ -10,47 +10,63 @@ const Login = ({ navigation }) => {
     const [email, setEmail] = useState('');
     const [passWord, setPassWord] = useState('');
 
-    const [isLogin, setIsLogin] = useState(0)
 
     const reduxData = useSelector(reduxSource => reduxSource).loginReducer;
     const reduxDataHome = useSelector(x => x.homeReducer);
+    const dispatch = useDispatch()
 
     const actionLogin = () => {
-        saveData();
-        if(email == "abcd") {
-            navigation.navigate('body');
-        }
+
+        fetch('https://sandbox.izivan.com.vn/api/login', {
+            method: 'POST',
+            headers: {
+                Accept: 'application/json',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                email: email,
+                password: passWord
+            })
+        }).then(async (response) => {
+            const data = await response.json()
+            
+            if (data.user) {
+                dispatch({ type: 'ACTION_LOGIN', payload: data.user});
+                saveData('true');
+                navigation.navigate('body');
+            } else {
+    
+            }
+            
+        });
+
+        
     }
 
-    const saveData = async () => {
+    const saveData = async (value) => {
         AsyncStorage.clear()
         try {
-            await AsyncStorage.setItem("EMAIL_DATA_SAVE", email)
-            console.log(email)
-            alert('Data successfully saved')
+            await AsyncStorage.setItem("IS_LOGIN", value)
+            console.log('Data successfully saved')
         } catch (e) {
-            alert('Failed to save the data to the storage')
+            console.log('Failed to save the data to the storage')
         }
     }
     const readData = async () => {
         try {
-            const emailData = await AsyncStorage.getItem("EMAIL_DATA_SAVE")
-
-            if (emailData !== null) {
-                console.log(emailData)
-                setEmail(emailData)
-
-            }
-            if(email == "abcd") {
-                navigation.navigation('body');
-            }
+            const is_login = await AsyncStorage.getItem("IS_LOGIN");
+            // if(is_login == 'true') {
+            //     navigation.navigate('body');
+            // }
+            
         } catch (e) {
-            alert('Failed to fetch the data from storage')
+            console.log('Login ko lay dc data local')
         }
     }
+
+    // Khởi chạy để lấy giá trị local
     useEffect(() => {
         readData();
-
     }, [])
 
     return (

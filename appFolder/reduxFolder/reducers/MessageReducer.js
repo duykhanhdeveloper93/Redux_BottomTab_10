@@ -5,6 +5,9 @@ const initialState= {
         {name: 'aaaa'},
         {name: 'aaaa'},
     ],
+    // Header Show
+    headerSelectIcon: require ('../../sourceData/image/part4/header/headerSelect/image.png'),
+    headerNoSelectIcon: require ('../../sourceData/image/part4/header/headerNoSelect/image.png'),
     // Line 1
     bgImage1 : require ('../../sourceData/image/part4/header/bgImage1/img.png'),
     text_1_1 : "Message",
